@@ -6,7 +6,7 @@
 /*   By: fchrysta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 20:45:25 by fchrysta          #+#    #+#             */
-/*   Updated: 2022/01/27 20:58:51 by fchrysta         ###   ########.fr       */
+/*   Updated: 2022/01/27 21:44:11 by fchrysta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int parse_string (char *str, int *arr)
 	
 	while (str[i])
 	{
-	
+		
 	}
 	return (pos);
 }
@@ -51,22 +51,20 @@ int	count_nbrs(int str_nbr, char **str)
 	return (cntr);
 }
 
-int	parse (int argc, char **argv, int *ret_arr)
+int	parse (int argc, char **argv, int *arr)
 {
 	int	nbr_cntr;
-	int	str_cntr;
-	int *tmp_arr;
-	int	arr_len;
+	int	s;
 
-	str_cntr = 0;
-	nbr_cntr = 0;
-	arr_len = count_nbrs(argc - 1, **argv);
-	while (argc > 1)
+	s = 0;
+	nbr_cntr = count_nbrs(argc - 2, **argv);
+	arr = malloc(sizeof (int) * nbr_cntr);
+	if (!arr)
+		return (0);
+	while (s < argc - 2)
 	{
-		parse_string(argv[str_cntr], tmp_arr);
-		argc--;		
+		parse_string(argv[s], ret_arr);
+		s++;		
 	}
-		
-
 	return (nbr_cntr);
 }
