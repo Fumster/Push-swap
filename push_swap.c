@@ -1,24 +1,22 @@
 #include "push_swap.h"
 
-int main (int	cntr, char **argv)
+int main (int	argc, char **argv)
 {
-	int	*unsorted_arr;
-	int	*indexes_arr;
 	t_list	*stack_a;
+	int		nbr_cntr;
+	int		valid;
 
-	unsorted_arr = NULL;
-	if (cntr > 1)
+	if (argc > 1)
 	{
-		cntr = validate(cntr, argv);
-		cntr = parse(cntr, argv, unsorted_arr);
-		if (!cntr)
+		nbr_cntr = count_nbr(argc, argv);
+		valid = validate(argc, argv, nbr_cntr);
+		if (!cntr || !valid)
 		{
 			write(1, "Error\n", 6);
 			return (0);
 		}
-		indexes_arr = sort_arr(unsorted_arr, cntr);
-		fill_stack(sorted_arr, stack_a);
-		sort_stack(stack_a, stack_b, cntr);
+		parse(argc, argv, nbr_cntr, stack_a);
+		sort_stack(stack_a, nbr_cntr);
 	}	
 	return (0);
 }

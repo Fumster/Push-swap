@@ -23,44 +23,12 @@ int parse_string (char *str, int *arr, t_list *stack)
 	return (pos);
 }
 
-int	count_nbrs(int str_nbr, char **str)
-{
-	int s;
-	int c;
-	int cntr;
-	int is_num;
-
-	s = 0;
-	c = 0;
-	cntr = 0;
-	is_num = 0;
-	while (s <= str_nbr)
-	{
-		while (str[s][c])
-		{
-			if (str[s][c] >= '0' && str[s][c] <= '9' && is_num == 0)
-				cntr++;
-			if (str[s][c] >= '0' && str[s][c] <= '9')
-				is_num = 1;
-			else
-				is_num = 0;
-			c++;
-		}
-		s++;
-	}
-	return (cntr);
-}
-
-int	parse (int argc, char **argv, int *arr, t_list *stack)
+int	parse (int argc, char **argv, int nbr_cntr, t_list *stack)
 {
 	int	nbr_cntr;
 	int	s;
 
 	s = 0;
-	nbr_cntr = count_nbrs(argc - 2, **argv);
-	arr = malloc(sizeof (int) * nbr_cntr);
-	if (!arr)
-		return (0);
 	while (s < argc - 2)
 	{
 		parse_string(argv[s], ret_arr, stack);
