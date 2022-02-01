@@ -16,9 +16,12 @@ int parse_string (char *str, int *arr, t_list *stack)
 	int len;
 
 	
-	while (str[i])
+	while (*str)
 	{
-		
+		if ((*str >= '0' && *str <= '9') || *str == '-')
+			str + ft_atoi(str, stack);
+		else
+			str++;
 	}
 	return (pos);
 }
