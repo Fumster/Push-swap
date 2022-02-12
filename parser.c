@@ -10,6 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+void	add_list(long int num, t_list *stack)
+{
+	
+}
+
+int	ft_atoi(char *str, t_list *stack)
+{
+	int			sign;
+	int			i;
+	long int	num;
+
+	sign = 1;
+	i = 0;
+	num = 0;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	while (str[i] && (str[i] >= '0' || str[i] <= '9' || str[i] == '-')
+	{
+		num = num * 10 + (str[i] - 48);
+		i++;
+	}
+	num = num * sign;
+	add_list(num, stack);
+	return (i);
+}
+
 int parse_string (char *str, int *arr, t_list *stack)
 {
 	int	i;
@@ -26,9 +55,8 @@ int parse_string (char *str, int *arr, t_list *stack)
 	return (pos);
 }
 
-int	parse (int argc, char **argv, int nbr_cntr, t_list *stack)
+int	parse (int argc, char **argv, t_list *stack)
 {
-	int	nbr_cntr;
 	int	s;
 
 	s = 0;
@@ -37,5 +65,5 @@ int	parse (int argc, char **argv, int nbr_cntr, t_list *stack)
 		parse_string(argv[s], ret_arr, stack);
 		s++;		
 	}
-	return (nbr_cntr);
+	return (0);
 }
