@@ -14,7 +14,7 @@ typedef struct s_list
 }				t_list;
 
 int validate (int argc, char **argv);
-int count_nbrs(int argc, char **argv);
+void count_nbrs(int argc, char **argv, int *cntr);
 int parse (int argc, char **argv, t_list *stack);
 
 #endif

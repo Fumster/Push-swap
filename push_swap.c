@@ -18,9 +18,11 @@ int main (int	argc, char **argv)
 	int		nbr_cntr;
 	int		valid;
 
+	nbr_cntr = 0;
 	if (argc > 1)
 	{
-		nbr_cntr = count_nbrs(argc, argv);
+		count_nbrs(argc, argv, &nbr_cntr);
+		printf ("nbr_cntr is %d\n", nbr_cntr);
 		valid = validate(argc, argv);
 		if (!nbr_cntr || !valid)
 		{

@@ -10,30 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int count_nbrs(int argc, char **argv)
+#include "push_swap.h"
+
+void count_nbrs(int argc, char **argv, int *cntr)
 {
     int s;
     int c;
-    int cntr;
     int is_num;
 
     s = 1;
     c = 0;
-    cntr = 0;
     is_num = 0;
+	printf ("argc %d\n", argc);
     while (s < argc)
     {
         while (argv[s][c])
         {
             if (argv[s][c] >= '0' && argv[s][c] <= '9' && is_num == 0)
-                cntr++;
+                *cntr = *cntr + 1;
             if (argv[s][c] >= '0' && argv[s][c] <= '9')
                 is_num = 1;
             else
                 is_num = 0;
             c++;
         }
-        s++;
+		is_num = 0;
+        c = 0;
+		s++;
     }
-    return (cntr);
 }

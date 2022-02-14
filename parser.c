@@ -31,12 +31,13 @@ int	ft_atoi(char *str, t_list *stack)
 		sign = -1;
 		i++;
 	}
-	while (str[i] && (str[i] >= '0' || str[i] <= '9' || str[i] == '-'))
+	while (str[i] && ((str[i] >= '0' && str[i] <= '9') || str[i] == '-'))
 	{
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
 	num = num * sign;
+	printf ("num is %ld\n", num);
 	stack->num = num; // remove
 //	add_list(num, stack);
 	return (i);
@@ -62,8 +63,8 @@ int	parse (int argc, char **argv, t_list *stack)
 {
 	int	s;
 
-	s = 0;
-	while (s < argc - 2)
+	s = 1;
+	while (s < argc)
 	{
 		parse_string(argv[s], stack);
 		s++;		
