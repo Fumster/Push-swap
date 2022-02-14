@@ -14,7 +14,7 @@
 
 int main (int	argc, char **argv)
 {
-	//t_list	*stack_a;
+	t_list	stack_a;
 	int		nbr_cntr;
 	int		valid;
 
@@ -27,7 +27,7 @@ int main (int	argc, char **argv)
 			write(1, "Error\n", 6);
 			return (0);
 		}
-		//parse(argc, argv, stack_a);
+		parse(argc, argv, &stack_a);
 		//sort_stack(stack_a, nbr_cntr);
 	}	
 	return (0);

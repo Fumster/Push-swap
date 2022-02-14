@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	add_list(long int num, t_list *stack)
-{
-	
-}
+#include "push_swap.h"
+
+//void	add_list(long int num, t_list *stack)
+//{
+//	
+//}
 
 int	ft_atoi(char *str, t_list *stack)
 {
@@ -29,30 +31,31 @@ int	ft_atoi(char *str, t_list *stack)
 		sign = -1;
 		i++;
 	}
-	while (str[i] && (str[i] >= '0' || str[i] <= '9' || str[i] == '-')
+	while (str[i] && (str[i] >= '0' || str[i] <= '9' || str[i] == '-'))
 	{
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
 	num = num * sign;
-	add_list(num, stack);
+	stack->num = num; // remove
+//	add_list(num, stack);
 	return (i);
 }
 
-int parse_string (char *str, int *arr, t_list *stack)
+int parse_string (char *str, t_list *stack)
 {
-	int	i;
-	int len;
+//	int	i; // probably dont need
+//	int len; //probably dont need
 
 	
 	while (*str)
 	{
 		if ((*str >= '0' && *str <= '9') || *str == '-')
-			str + ft_atoi(str, stack);
+			str = str + ft_atoi(str, stack);
 		else
 			str++;
 	}
-	return (pos);
+	return (0);
 }
 
 int	parse (int argc, char **argv, t_list *stack)
@@ -62,7 +65,7 @@ int	parse (int argc, char **argv, t_list *stack)
 	s = 0;
 	while (s < argc - 2)
 	{
-		parse_string(argv[s], ret_arr, stack);
+		parse_string(argv[s], stack);
 		s++;		
 	}
 	return (0);

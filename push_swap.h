@@ -7,10 +7,11 @@
 
 typedef struct s_list
 {
-	int	index;
-	int	gen;
-	int	sorted;
-}	t_list;
+	long int	num;
+	int			index;
+	int			gen;
+	int			sorted;
+}				t_list;
 
 int validate (int argc, char **argv);
 int count_nbrs(int argc, char **argv);
