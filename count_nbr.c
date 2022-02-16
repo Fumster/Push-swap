@@ -21,7 +21,6 @@ void count_nbrs(int argc, char **argv, int *cntr)
     s = 1;
     c = 0;
     is_num = 0;
-	printf ("argc %d\n", argc);
     while (s < argc)
     {
         while (argv[s][c])

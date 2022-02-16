@@ -32,7 +32,7 @@ int validate_string (char *s)
 	return (1);
 }
 
-int validate (int argc, char **argv)
+void validate (int argc, char **argv)
 {
 	int	s;
 	int	valid;
@@ -42,9 +42,8 @@ int validate (int argc, char **argv)
 	while (s < argc)
 	{
 		valid = validate_string(argv[s]);
-		if (valid == 0)
-			return(0);
+		if (!valid)
+			ft_error(NULL, NULL);
 		s++;
 	}
-	return (1);
 }

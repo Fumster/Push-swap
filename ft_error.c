@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fchrysta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push-swap.h"
 
-int main (int	argc, char **argv)
+void free_stack(t_list *stack)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	int		nbr_cntr;
+	t_list *tmp;
 
-	nbr_cntr = 0;
-	stack_a = NULL;
-	stack_b = NULL;
-	if (argc > 1)
+	next = NULL;
+	while (stack)
 	{
-		validate(argc, argv);
-		count_nbrs(argc, argv, &nbr_cntr);
-		printf ("nbr_cntr is %d\n", nbr_cntr);
-		if (!nbr_cntr)
-			ft_error(stack_a, stack_b);
-		parse(argc, argv, stack_a);
-		//sort_stack(stack_a, nbr_cntr);
-	}	
-	return (0);
+	tmp = stack->next;
+	free(stack);
+	stack = tmp;
+	}
+}
+
+void ft_error (t_list *stack_a, t_list *stack_b)
+{
+	if(stack_a)
+		free_stack(stack_a);
+	if(stack_b)
+		free_stack(stack_b);
+	write(1, "Error\n", 6);
+	exit (1);
 }
