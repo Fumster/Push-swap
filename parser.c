@@ -14,7 +14,24 @@
 
 void	add_list(long int num, t_list *stack_a)
 {
-	stack_a = malloc()	
+	t_list	*new;
+	t_list	*tmp
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		ft_error(NULL, NULL);
+	new->num = num;
+	new->index = 0;
+	new->gen = 0;
+	new->sorted = 0;
+	new->next = NULL;
+	if (!stack_a)
+		stack_a = new;
+	tmp = stack_a;
+	while (tmp->next)
+		tmp = tmp->next;
+	if (tmp != stack_a)
+		tmp->next = new;
 }
 
 int	ft_atoi(char *str, t_list *stack_a)
