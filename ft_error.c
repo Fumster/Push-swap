@@ -10,20 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push-swap.h"
-
-void free_stack(t_list *stack)
-{
-	t_list *tmp;
-
-	next = NULL;
-	while (stack)
-	{
-	tmp = stack->next;
-	free(stack);
-	stack = tmp;
-	}
-}
+#include "push_swap.h"
 
 void ft_error (t_list *stack_a, t_list *stack_b)
 {

@@ -12,24 +12,39 @@
 
 #include "push_swap.h"
 
+void	test (t_list *stack_a)
+{
+	t_list	*tmp_a;
+	int		i;
+
+	tmp_a = stack_a;
+	i = 1;
+	while (tmp_a)
+	{
+		printf("stack a num %d = %d\n", i, tmp_a->num);
+		tmp_a = tmp_a->next;
+		i++;
+	}
+}
+
 int main (int	argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		nbr_cntr;
 
-	nbr_cntr = 0;
-	stack_a = NULL;
-	stack_b = NULL;
 	if (argc > 1)
 	{
 		validate(argc, argv);
-		count_nbrs(argc, argv, &nbr_cntr);
+		nbr_cntr = count_nbrs(argc, argv);
 		printf ("nbr_cntr is %d\n", nbr_cntr);
-		if (!nbr_cntr)
-			ft_error(stack_a, stack_b);
-		parse(argc, argv, stack_a);
-		//sort_stack(stack_a, nbr_cntr);
+		stack_a = parse(argc, argv);
+		stack_b = stack_a; // remove
+		stack_a = stack_b; // remove
+		check_duplicates(stack_a);
+		test(stack_a); // remove
+	//	sort_stack(stack_a, nbr_cntr);
+		free_stack(stack_a);
 	}	
 	return (0);
 }

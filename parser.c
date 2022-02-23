@@ -12,74 +12,85 @@
 
 #include "push_swap.h"
 
-void	add_list(long int num, t_list *stack_a)
+t_list	*add_list(int num, t_list *stack)
 {
 	t_list	*new;
-	t_list	*tmp
+	t_list	*last;
 
 	new = malloc(sizeof(t_list));
+	last = stack;
 	if (!new)
-		ft_error(NULL, NULL);
+		ft_error(stack, NULL);
 	new->num = num;
 	new->index = 0;
 	new->gen = 0;
 	new->sorted = 0;
 	new->next = NULL;
-	if (!stack_a)
-		stack_a = new;
-	tmp = stack_a;
-	while (tmp->next)
-		tmp = tmp->next;
-	if (tmp != stack_a)
-		tmp->next = new;
+	if (!stack)
+	{
+		stack = new;
+		return (stack);
+	}
+	while (last->next)
+		last = last->next;
+	last->next = new;
+	return (stack);
 }
 
-int	ft_atoi(char *str, t_list *stack_a)
+t_list	*ft_atoi(char *str, t_list *stack, int *i)
 {
 	int			sign;
-	int			i;
 	long int	num;
 
 	sign = 1;
-	i = 0;
 	num = 0;
-	if (str[i] == '-')
+	if (str[*i] == '-')
 	{
 		sign = -1;
-		i++;
+		*i = *i + 1;
 	}
-	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	while (str[*i] && (str[*i] >= '0' && str[*i] <= '9'))
 	{
-		num = num * 10 + (str[i] - 48);
-		i++;
+		num = num * 10 + (str[*i] - 48);
+		*i = *i + 1;
 	}
 	num = num * sign;
-	if (num > 2147483647 || num < 2147483648)
-		ft_error(stack_a, NULL);
-	add_list(num, stack_a);
-	return (i);
+	if (num > 2147483647 || num < -2147483648)
+		ft_error(stack, NULL);
+	stack = add_list(num, stack);
+	return (stack);
 }
 
-int parse_string (char *str, t_list *stack_a)
+t_list	*parse_string (char *str, t_list *stack)
 {
+	int	offset;
+	
+	offset = 0;
 	while (*str)
 	{
 		if ((*str >= '0' && *str <= '9') || *str == '-')
-			str = str + ft_atoi(str, stack_a);
+		{
+			offset = 0;
+			stack = ft_atoi(str, stack, &offset);
+			str = str + offset;
+		}
 		else
 			str++;
 	}
-	return (0);
+	return (stack);
 }
 
-int	parse (int argc, char **argv, t_list *stack_a)
+t_list	*parse (int argc, char **argv)
 {
 	int	s;
+	t_list *stack;
 
 	s = 1;
+	stack = NULL;
 	while (s < argc)
 	{
-		parse_string(argv[s], stack_a);
+		stack = parse_string(argv[s], stack);
 		s++;		
 	}
+	return (stack);
 }

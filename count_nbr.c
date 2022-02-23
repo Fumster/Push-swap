@@ -12,29 +12,41 @@
 
 #include "push_swap.h"
 
-void count_nbrs(int argc, char **argv, int *cntr)
+int count_num_str (char *str)
+{
+	int	i;
+	int	is_num;
+	int	num;
+
+	i = 0;
+	is_num = 0;
+	num = 0;
+	while (str[i])
+	{
+	if (str[i] >= '0' && str[i] <= '9' && is_num == 0)
+		num++;
+	if (str[i] >= '0' && str[i] <= '9')
+		is_num = 1;
+	else
+		is_num = 0;
+	i++;
+	}
+	return (num);
+}
+
+int count_nbrs(int argc, char **argv)
 {
     int s;
-    int c;
-    int is_num;
+	int num;
 
     s = 1;
-    c = 0;
-    is_num = 0;
+	num = 0;
     while (s < argc)
     {
-        while (argv[s][c])
-        {
-            if (argv[s][c] >= '0' && argv[s][c] <= '9' && is_num == 0)
-                *cntr = *cntr + 1;
-            if (argv[s][c] >= '0' && argv[s][c] <= '9')
-                is_num = 1;
-            else
-                is_num = 0;
-            c++;
-        }
-		is_num = 0;
-        c = 0;
+		num = num + count_num_str(argv[s]);
 		s++;
     }
+	if (!num)
+		ft_error (NULL, NULL);
+	return (num);
 }
