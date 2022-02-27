@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 SOURCES =	push_swap.c validate.c parser.c count_nbr.c ft_error.c \
-			free_stack.c check_duplicates.c
+			free_stack.c check_duplicates.c index_lists.c
 HEADER =	push_swap.h
 CC =		gcc
 NAME =		push_swap

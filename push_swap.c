@@ -19,9 +19,10 @@ void	test (t_list *stack_a)
 
 	tmp_a = stack_a;
 	i = 1;
+	printf("------- stack a ------\n");
 	while (tmp_a)
 	{
-		printf("stack a num %d = %d\n", i, tmp_a->num);
+		printf("%d. num = %d, index = %d\n", i, tmp_a->num, tmp_a->index);
 		tmp_a = tmp_a->next;
 		i++;
 	}
@@ -30,7 +31,7 @@ void	test (t_list *stack_a)
 int main (int	argc, char **argv)
 {
 	t_list	*stack_a;
-	t_list	*stack_b;
+//	t_list	*stack_b;
 	int		nbr_cntr;
 
 	if (argc > 1)
@@ -39,11 +40,9 @@ int main (int	argc, char **argv)
 		nbr_cntr = count_nbrs(argc, argv);
 		printf ("nbr_cntr is %d\n", nbr_cntr);
 		stack_a = parse(argc, argv);
-		stack_b = stack_a; // remove
-		stack_a = stack_b; // remove
 		check_duplicates(stack_a);
+		index_lists(nbr_cntr, stack_a);
 		test(stack_a); // remove
-	//	sort_stack(stack_a, nbr_cntr);
 		free_stack(stack_a);
 	}	
 	return (0);
