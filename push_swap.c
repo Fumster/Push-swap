@@ -19,7 +19,7 @@ void	test (t_list *stack_a)
 
 	tmp_a = stack_a;
 	i = 1;
-	printf("------- stack a ------\n");
+	printf("------- stack a -------\n");
 	while (tmp_a)
 	{
 		printf("%d. num = %d, index = %d\n", i, tmp_a->num, tmp_a->index);
