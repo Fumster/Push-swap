@@ -12,12 +12,9 @@
 
 #include "push_swap.h"
 
-void ft_error (t_list *stack_a, t_list *stack_b)
+void ft_error (t_list *stacks)
 {
-	if(stack_a)
-		free_stack(stack_a);
-	if(stack_b)
-		free_stack(stack_b);
+	free_stacks(stacks);
 	write(1, "Error\n", 6);
 	exit (1);
 }

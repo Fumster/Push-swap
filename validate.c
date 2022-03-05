@@ -45,7 +45,7 @@ void validate (int argc, char **argv)
 	{
 		valid = validate_string(argv[s]);
 		if (!valid)
-			ft_error(NULL, NULL);
+			ft_error(NULL);
 		s++;
 	}
 }

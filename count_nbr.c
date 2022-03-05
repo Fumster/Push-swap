@@ -47,7 +47,7 @@ int count_nbrs(int argc, char **argv)
 		s++;
     }
 	if (!num)
-		ft_error (NULL, NULL);
+		ft_error (NULL);
 	if (num == 1)
 		exit(0);
 	return (num);

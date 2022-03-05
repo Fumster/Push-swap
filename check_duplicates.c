@@ -1,16 +1,18 @@
 #include "push_swap.h"
 
-void	check_duplicates(t_list *stack)
+void	check_duplicates(t_list *stacks)
 {
-	t_list	*next;
+	t_stack	*next;
+	t_stack	*stack;
 
-	next = stack->next;
+	next = stacks->stack_a->next;
+	stack = stacks->stack_a;
 	while (stack->next)
 	{
 		while (next)
 		{
 			if (stack->num == next->num)
-			ft_error(stack, NULL);
+			ft_error(stacks);
 			next = next->next;
 		}
 		stack = stack->next;

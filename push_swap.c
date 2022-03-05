@@ -12,38 +12,73 @@
 
 #include "push_swap.h"
 
-void	test (t_list *stack_a)
+void	test (t_list *stacks)
 {
-	t_list	*tmp_a;
+	t_stack	*tmp_a;
+	t_stack	*tmp_b;
 	int		i;
+	int		a_n;
+	int		a_i;
+	int 	b_n;
+	int 	b_i;
 
-	tmp_a = stack_a;
+	tmp_a = stacks->stack_a;
+	tmp_b = stacks->stack_b;
 	i = 1;
-	printf("------- stack a -------\n");
-	while (tmp_a)
+	printf("----------- stack a --------------|----------- stack b ---------\n");
+	while (tmp_a || tmp_b)
 	{
-		printf("%d. num = %d, index = %d\n", i, tmp_a->num, tmp_a->index);
-		tmp_a = tmp_a->next;
+		a_n = 0;
+		a_i = 0;
+		b_n = 0;
+		b_i = 0;
+		if (tmp_a)
+		{
+			a_n = tmp_a->num;
+			a_i = tmp_a->index;
+		}
+		if (tmp_b)
+		{
+			b_n = tmp_b->num;
+			b_i = tmp_b->index;
+		}
+		printf	("%3.d. num = %10.d index = %3.d | num = %10.d index = %3.d\n",
+				i, a_n, a_i, b_n, b_i);
+		if(tmp_a)
+			tmp_a = tmp_a->next;
+		if(tmp_b)
+			tmp_b = tmp_b->next;
 		i++;
 	}
 }
 
 int main (int	argc, char **argv)
 {
-	t_list	*stack_a;
-//	t_list	*stack_b;
+	t_list	stacks;
 	int		nbr_cntr;
 
+	stacks.stack_a = NULL;
+	stacks.stack_b = NULL;
 	if (argc > 1)
 	{
 		validate(argc, argv);
 		nbr_cntr = count_nbrs(argc, argv);
 		printf ("nbr_cntr is %d\n", nbr_cntr);
-		stack_a = parse(argc, argv);
-		check_duplicates(stack_a);
-		index_lists(nbr_cntr, stack_a);
-		test(stack_a); // remove
-		free_stack(stack_a);
+		parse(argc, argv, &stacks);
+		check_duplicates(&stacks);
+		index_lists(nbr_cntr, &stacks);
+		test(&stacks); // remove
+		pb(&stacks);
+		pb(&stacks);
+		pb(&stacks);
+		pb(&stacks);
+		pb(&stacks);
+		ss(&stacks);
+		//sb(&stacks);
+		//pa(&stacks);
+		//pa(&stacks);
+		test(&stacks); // remove
+		free_stacks(&stacks);
 	}	
 	return (0);
 }

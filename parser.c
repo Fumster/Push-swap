@@ -12,32 +12,31 @@
 
 #include "push_swap.h"
 
-t_list	*add_list(int num, t_list *stack)
+void	add_list(int num, t_list *stacks)
 {
-	t_list	*new;
-	t_list	*last;
+	t_stack	*new;
+	t_stack	*last;
 
-	new = malloc(sizeof(t_list));
-	last = stack;
+	new = (t_stack*)malloc(sizeof(t_stack));
+	last = stacks->stack_a;
 	if (!new)
-		ft_error(stack, NULL);
+		ft_error(stacks);
 	new->num = num;
 	new->index = 0;
 	new->gen = 0;
 	new->sorted = 0;
 	new->next = NULL;
-	if (!stack)
+	if (!stacks->stack_a)
 	{
-		stack = new;
-		return (stack);
+		stacks->stack_a = new;
+		return;
 	}
 	while (last->next)
 		last = last->next;
 	last->next = new;
-	return (stack);
 }
 
-t_list	*ft_atoi(char *str, t_list *stack, int *i)
+void	ft_atoi(char *str, t_list *stacks, int *i)
 {
 	int			sign;
 	long int	num;
@@ -56,12 +55,11 @@ t_list	*ft_atoi(char *str, t_list *stack, int *i)
 	}
 	num = num * sign;
 	if (num > 2147483647 || num < -2147483648)
-		ft_error(stack, NULL);
-	stack = add_list(num, stack);
-	return (stack);
+		ft_error(stacks);
+	add_list(num, stacks);
 }
 
-t_list	*parse_string (char *str, t_list *stack)
+void	parse_string (char *str, t_list *stacks)
 {
 	int	offset;
 	
@@ -71,26 +69,22 @@ t_list	*parse_string (char *str, t_list *stack)
 		if ((*str >= '0' && *str <= '9') || *str == '-')
 		{
 			offset = 0;
-			stack = ft_atoi(str, stack, &offset);
+			ft_atoi(str, stacks, &offset);
 			str = str + offset;
 		}
 		else
 			str++;
 	}
-	return (stack);
 }
 
-t_list	*parse (int argc, char **argv)
+void	parse (int argc, char **argv, t_list *stacks)
 {
 	int	s;
-	t_list *stack;
 
 	s = 1;
-	stack = NULL;
 	while (s < argc)
 	{
-		stack = parse_string(argv[s], stack);
+		parse_string(argv[s], stacks);
 		s++;		
 	}
-	return (stack);
 }

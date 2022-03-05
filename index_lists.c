@@ -1,6 +1,6 @@
 #include"push_swap.h"
 
-int find_min (t_list *stack)
+int find_min (t_stack *stack)
 {
 	int	min;
 
@@ -14,21 +14,21 @@ int find_min (t_list *stack)
 	return (min);
 }
 
-void index_lists (int nbr_cntr, t_list *stack)
+void index_lists (int nbr_cntr, t_list *stacks)
 {
 	int	index;
 	int	min;
-	t_list *tmp;
+	t_stack *tmp;
 	
 	index = 1;
-	tmp = stack;
+	tmp = stacks->stack_a;
 	while (index <= nbr_cntr)
 	{
-		min = find_min(stack);
+		min = find_min(stacks->stack_a);
 		while (tmp->num != min)
 			tmp = tmp->next;
 		tmp->index = index;
-		tmp = stack;
+		tmp = stacks->stack_a;
 		index++;
 	}
 }

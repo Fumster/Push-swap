@@ -1,33 +1,24 @@
 #include "push_swap.h"
 
-void push_stack (t_list *src, t_list *dst)
+void push (t_stack **dst, t_stack **src)
 {
-	t_list	*tmp;
-
-	tmp = src;
-	src = dst;
-	stack->next = tmp;
+	t_stack	*tmp;
+	
+	tmp = *src;
+	if(*src)
+	{
+		*src = (*src)->next;
+		tmp->next = *dst;
+		*dst = tmp;
+	}
 }
 
-void swap (t_list *stack_1, t_list *stack_2)
+void pa (t_list *stacks)
 {
-	if (stack_1 && stack_1->next)
-		swap_stack(stack_1);
-	if (stack_2 && stack_2->next)
-		swap_stack(stack_2);
+	push (&stacks->stack_a, &stacks->stack_b);
 }
 
-void pa (t_list *stack_a)
+void pb (t_list *stacks)
 {
-	swap (stack_a, NULL);
-}
-
-void sb (t_list *stack_b)
-{
-	swap (stack_b, NULL);
-}
-
-void ss (t_list *stack_a, t_list *stack_b)
-{
-	swap (stack_a, stack_b);
+	push (&stacks->stack_b, &stacks->stack_a);
 }

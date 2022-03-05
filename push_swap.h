@@ -5,22 +5,34 @@
 #include <stdlib.h>
 #include <stdio.h> // DELETE<<<<<<<<<<<<<<<<<<<<<<<<
 
-typedef struct s_list
+typedef struct s_stack
 {
 	int				num;
 	int				index;
 	int				gen;
 	int				sorted;
-	struct s_list	*next;
-}					t_list;
+	struct s_stack	*next;
+}					t_stack;
+
+typedef struct s_list
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+}			t_list;
 
 void	validate (int argc, char **argv);
 int		count_nbrs(int argc, char **argv);
-t_list	*parse (int argc, char **argv);
-void	free_stack(t_list *stack);
-void	ft_error (t_list *stack_a, t_list *stack_b);
-void	check_duplicates (t_list *stack);
-void	index_lists (int nbr_cntr, t_list *stack);
+void	parse (int argc, char **argv, t_list *stacks);
+void	free_stacks (t_list *stacks);
+void	ft_error (t_list *stacks);
+void	check_duplicates (t_list *stacks);
+void	index_lists (int nbr_cntr, t_list *stacks);
+void sa (t_list *stacks);
+void sb (t_list *stacks);
+void ss (t_list *stacks);
+void pa (t_list *stacks);
+void pb (t_list *stacks);
+
 
 
 
