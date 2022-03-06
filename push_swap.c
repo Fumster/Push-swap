@@ -56,27 +56,23 @@ int main (int	argc, char **argv)
 {
 	t_list	stacks;
 	int		nbr_cntr;
+	int		sorted;
 
 	stacks.stack_a = NULL;
 	stacks.stack_b = NULL;
+	sorted = 0;
 	if (argc > 1)
 	{
 		validate(argc, argv);
 		nbr_cntr = count_nbrs(argc, argv);
-		printf ("nbr_cntr is %d\n", nbr_cntr);
+		//printf ("nbr_cntr is %d\n", nbr_cntr); // remove
 		parse(argc, argv, &stacks);
 		check_duplicates(&stacks);
 		index_lists(nbr_cntr, &stacks);
 		test(&stacks); // remove
-		pb(&stacks);
-		pb(&stacks);
-		pb(&stacks);
-		pb(&stacks);
-		pb(&stacks);
-		ss(&stacks);
-		//sb(&stacks);
-		//pa(&stacks);
-		//pa(&stacks);
+		sorted = is_sorted(&stacks);
+		if (!sorted)
+			sort_stack(nbr_cntr, &stacks);
 		test(&stacks); // remove
 		free_stacks(&stacks);
 	}	

@@ -27,11 +27,22 @@ void	free_stacks (t_list *stacks);
 void	ft_error (t_list *stacks);
 void	check_duplicates (t_list *stacks);
 void	index_lists (int nbr_cntr, t_list *stacks);
-void sa (t_list *stacks);
-void sb (t_list *stacks);
-void ss (t_list *stacks);
-void pa (t_list *stacks);
-void pb (t_list *stacks);
+void	sa (t_list *stacks);
+void	sb (t_list *stacks);
+void	ss (t_list *stacks);
+void	pa (t_list *stacks);
+void	pb (t_list *stacks);
+void	ra (t_list *stacks);
+void	rb (t_list *stacks);
+void	rr (t_list *stacks);
+void	rra (t_list *stacks);
+void	rrb (t_list *stacks);
+void	rrr (t_list *stacks);
+int		is_sorted (t_list *stacks);
+void    sort_stack (int nbr_cntr, t_list *stacks);
+void    sort_3_el (t_list *stacks);
+void    sort_5_el (t_list *stacks);
+void    sort_max_el (t_list *stacks, int max);
 
 
 

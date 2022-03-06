@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void swap_stack (t_stack **stack)
+int swap_stack (t_stack **stack)
 {
 	t_stack	*first;
 	t_stack *second;
@@ -14,21 +14,35 @@ void swap_stack (t_stack **stack)
 		*stack = second;
 		(*stack)->next = first;
 		(*stack)->next->next = third;
+		return (0);
 	}
+	return (1);
 }
 
 void sa (t_list *stacks)
 {
-	swap_stack (&stacks->stack_a);
+	int err;
+	
+	err = swap_stack (&stacks->stack_a);
+	if (!err)
+		write(1, "sa\n", 3);
 }
 
 void sb (t_list *stacks)
 {
-	swap_stack (&stacks->stack_b);
+	int err;
+	
+	err = swap_stack (&stacks->stack_b);
+	if (!err)
+		write(1, "sb\n", 3);
 }
 
 void ss (t_list *stacks)
 {
-	swap_stack (&stacks->stack_a);
-	swap_stack (&stacks->stack_b);
+	int err;
+	
+	err = swap_stack (&stacks->stack_a);
+	err += swap_stack (&stacks->stack_b);
+	if (!err)
+		write(1, "ss\n", 3);
 }
