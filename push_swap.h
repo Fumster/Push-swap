@@ -41,7 +41,7 @@ void	rrr (t_list *stacks);
 int		is_sorted (t_list *stacks);
 void    sort_stack (int nbr_cntr, t_list *stacks);
 void    sort_3_el (t_list *stacks);
-void    sort_5_el (t_list *stacks);
+void    sort_5_el (t_list *stacks, int cntr);
 void    sort_max_el (t_list *stacks, int max);
 
 
