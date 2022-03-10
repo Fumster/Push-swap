@@ -1,13 +1,13 @@
 #include"push_swap.h"
 
-int find_min (t_stack *stack)
+int find_min_num (t_stack *stack)
 {
 	int	min;
 
 	min = 2147483647;
 	while (stack)
 	{
-		if (stack->num < min && stack->index == 0)
+		if (stack->num <= min && stack->index == 0)
 			min = stack->num;
 		stack = stack->next;
 	}
@@ -24,7 +24,7 @@ void index_lists (int nbr_cntr, t_list *stacks)
 	tmp = stacks->stack_a;
 	while (index <= nbr_cntr)
 	{
-		min = find_min(stacks->stack_a);
+		min = find_min_num(stacks->stack_a);
 		while (tmp->num != min)
 			tmp = tmp->next;
 		tmp->index = index;

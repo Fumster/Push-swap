@@ -42,7 +42,10 @@ int		is_sorted (t_list *stacks);
 void    sort_stack (int nbr_cntr, t_list *stacks);
 void    sort_3_el (t_list *stacks);
 void    sort_5_el (t_list *stacks, int cntr);
-void    sort_max_el (t_list *stacks, int max);
+void    sort_max_el (t_list *stacks, int max_order);
+int		count_stack (t_stack *stack);
+int		find_min (t_stack *stack);
+int		find_max (t_stack *stack);
 
 
 
