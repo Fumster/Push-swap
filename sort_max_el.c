@@ -6,7 +6,7 @@
 /*   By: fchrysta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 20:45:25 by fchrysta          #+#    #+#             */
-/*   Updated: 2022/03/12 12:22:35 by fchrysta         ###   ########.fr       */
+/*   Updated: 2022/03/12 14:26:58 by fchrysta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,16 @@ void	push_a_upper_mid(t_list *stacks, int gen, int *next)
 	{
 		if(stacks->stack_b->index == *next)
 			{
-				stacks->stack_b->gen = -1;
 				pa(stacks);
-				ra(stacks);
-				*next = *next + 1;
+				while (stacks->stack_a->index == *next)
+				{
+					stacks->stack_a->gen = -1;
+					ra(stacks);
+					*next = *next + 1;
+				}
 			}
-	//	else if (cnt == 2)
-	//		push_a_sorted(stacks, &cnt, next, gen);
+//		else if (cnt == 2)
+//			push_a_sorted(stacks, &cnt, next, gen);
 		else if(stacks->stack_b->index >= mid)
 		{
 			pa(stacks);
@@ -114,7 +117,11 @@ void	push_b (t_list *stacks, int max_order, int next)
 		if(stacks->stack_a->index > mid)
 			ra(stacks);
 		else
+		{
 			pb(stacks);
+	//		if(stacks->stack_b->index > (mid + next) / 2 + ((mid + next) % 2))
+	//			rb(stacks);
+		}
 		cnt--;
 	}
 }
