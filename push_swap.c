@@ -6,7 +6,7 @@
 /*   By: fchrysta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 20:45:25 by fchrysta          #+#    #+#             */
-/*   Updated: 2022/01/28 21:18:21 by fchrysta         ###   ########.fr       */
+/*   Updated: 2022/03/12 12:27:37 by fchrysta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ int main (int	argc, char **argv)
 		parse(argc, argv, &stacks);
 		check_duplicates(&stacks);
 		index_lists(nbr_cntr, &stacks);
-		test(&stacks); // remove
+		//test(&stacks); // remove
 		sorted = is_sorted(&stacks);
 		if (!sorted)
 			sort_stack(nbr_cntr, &stacks);
-		test(&stacks); // remove
+	//	test(&stacks); // remove
 		free_stacks(&stacks);
 	}	
 	return (0);
