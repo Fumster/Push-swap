@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   index_lists.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fchrysta <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/13 18:02:49 by fchrysta          #+#    #+#             */
+/*   Updated: 2022/03/13 18:04:10 by fchrysta         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"push_swap.h"
 
-int find_min_num (t_stack *stack)
+int	find_min_num(t_stack *stack)
 {
 	int	min;
 
@@ -14,12 +26,12 @@ int find_min_num (t_stack *stack)
 	return (min);
 }
 
-void index_lists (int nbr_cntr, t_list *stacks)
+void	index_lists(int nbr_cntr, t_list *stacks)
 {
-	int	index;
-	int	min;
-	t_stack *tmp;
-	
+	int		index;
+	int		min;
+	t_stack	*tmp;
+
 	index = 1;
 	tmp = stacks->stack_a;
 	while (index <= nbr_cntr)

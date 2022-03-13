@@ -6,13 +6,13 @@
 /*   By: fchrysta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 20:45:25 by fchrysta          #+#    #+#             */
-/*   Updated: 2022/01/28 21:18:21 by fchrysta         ###   ########.fr       */
+/*   Updated: 2022/03/13 18:02:21 by fchrysta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_error (t_list *stacks)
+void	ft_error(t_list *stacks)
 {
 	free_stacks(stacks);
 	write(1, "Error\n", 6);

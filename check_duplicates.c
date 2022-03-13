@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_duplicates.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fchrysta <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/13 17:35:27 by fchrysta          #+#    #+#             */
+/*   Updated: 2022/03/13 17:36:18 by fchrysta         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	check_duplicates(t_list *stacks)
@@ -12,7 +24,7 @@ void	check_duplicates(t_list *stacks)
 		while (next)
 		{
 			if (stack->num == next->num)
-			ft_error(stacks);
+				ft_error(stacks);
 			next = next->next;
 		}
 		stack = stack->next;

@@ -6,7 +6,7 @@
 /*   By: fchrysta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 20:45:25 by fchrysta          #+#    #+#             */
-/*   Updated: 2022/01/28 21:18:21 by fchrysta         ###   ########.fr       */
+/*   Updated: 2022/03/13 18:08:47 by fchrysta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	add_list(int num, t_list *stacks)
 	t_stack	*new;
 	t_stack	*last;
 
-	new = (t_stack*)malloc(sizeof(t_stack));
+	new = (t_stack *) malloc(sizeof(t_stack));
 	last = stacks->stack_a;
 	if (!new)
 		ft_error(stacks);
@@ -29,7 +29,7 @@ void	add_list(int num, t_list *stacks)
 	if (!stacks->stack_a)
 	{
 		stacks->stack_a = new;
-		return;
+		return ;
 	}
 	while (last->next)
 		last = last->next;
@@ -59,10 +59,10 @@ void	ft_atoi(char *str, t_list *stacks, int *i)
 	add_list(num, stacks);
 }
 
-void	parse_string (char *str, t_list *stacks)
+void	parse_string(char *str, t_list *stacks)
 {
 	int	offset;
-	
+
 	offset = 0;
 	while (*str)
 	{
@@ -77,7 +77,7 @@ void	parse_string (char *str, t_list *stacks)
 	}
 }
 
-void	parse (int argc, char **argv, t_list *stacks)
+void	parse(int argc, char **argv, t_list *stacks)
 {
 	int	s;
 
@@ -85,6 +85,6 @@ void	parse (int argc, char **argv, t_list *stacks)
 	while (s < argc)
 	{
 		parse_string(argv[s], stacks);
-		s++;		
+		s++;
 	}
 }

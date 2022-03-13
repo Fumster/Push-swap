@@ -6,21 +6,21 @@
 /*   By: fchrysta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 20:22:35 by fchrysta          #+#    #+#             */
-/*   Updated: 2022/03/10 20:25:58 by fchrysta         ###   ########.fr       */
+/*   Updated: 2022/03/13 17:56:12 by fchrysta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int count_stack(t_stack *stack)
+int	count_stack(t_stack *stack)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(stack)
-    {
-        stack = stack->next;
-        i++;
-    }
-    return (i);
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }
