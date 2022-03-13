@@ -6,7 +6,7 @@
 /*   By: fchrysta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 18:10:43 by fchrysta          #+#    #+#             */
-/*   Updated: 2022/03/13 18:13:49 by fchrysta         ###   ########.fr       */
+/*   Updated: 2022/03/13 18:57:44 by fchrysta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	rra(t_list *stacks);
 void	rrb(t_list *stacks);
 void	rrr(t_list *stacks);
 int		is_sorted(t_list *stacks);
-void	sort_stack(int nbr_cntr, t_list *stacks);
 void	sort_3_el(t_list *stacks);
 void	sort_5_el(t_list *stacks, int cntr);
 void	sort_max_el(t_list *stacks, int max_order);
@@ -59,5 +58,6 @@ int		find_min(t_stack *stack);
 int		find_max(t_stack *stack);
 int		find_last_index(t_stack *stack);
 int		find_last_gen(t_stack *stack);
+void	sort_stack(int nbr_cntr, t_list *stacks);
 
 #endif
