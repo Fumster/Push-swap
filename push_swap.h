@@ -6,7 +6,7 @@
 /*   By: fchrysta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 18:10:43 by fchrysta          #+#    #+#             */
-/*   Updated: 2022/03/13 18:57:44 by fchrysta         ###   ########.fr       */
+/*   Updated: 2022/03/13 19:29:46 by fchrysta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,9 @@ int		find_max(t_stack *stack);
 int		find_last_index(t_stack *stack);
 int		find_last_gen(t_stack *stack);
 void	sort_stack(int nbr_cntr, t_list *stacks);
+void	repair_a(t_list *stacks, int next);
+void	down_sorted(t_list *stacks, int *next);
+int		get_gen_size(t_stack *stack);
+void	sort_gen(t_list *stacks, int *next);
 
 #endif
