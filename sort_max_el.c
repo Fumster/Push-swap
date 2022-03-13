@@ -6,23 +6,11 @@
 /*   By: fchrysta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 20:45:25 by fchrysta          #+#    #+#             */
-/*   Updated: 2022/03/13 11:31:33 by fchrysta         ###   ########.fr       */
+/*   Updated: 2022/03/13 11:52:47 by fchrysta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	find_last_index(t_stack *stack)
-{
-	int	ind;
-	
-	if (!stack)
-		return (0);
-	while(stack->next)
-		stack = stack->next;
-	ind = stack->index;
-	return (ind);
-}
 
 void	push_a_upper_mid(t_list *stacks, int gen, int *next)
 {
@@ -58,16 +46,6 @@ void	push_a_upper_mid(t_list *stacks, int gen, int *next)
 			return;
 		cnt--;
 	}
-}
-
-int	find_last_gen(t_stack *stack)
-{
-	int	gen;
-	
-	while(stack->next)
-		stack = stack->next;
-	gen = stack->gen;
-	return (gen);
 }
 
 void	push_b (t_list *stacks, int max_order, int *next)
