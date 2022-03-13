@@ -46,8 +46,8 @@ void    sort_max_el (t_list *stacks, int max_order);
 int		count_stack (t_stack *stack);
 int		find_min (t_stack *stack);
 int		find_max (t_stack *stack);
-
-
+int 	find_last_index (t_stack *stack);
+int 	find_last_gen (t_stack *stack);
 
 
 #endif
